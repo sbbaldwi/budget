@@ -145,3 +145,41 @@ Content-Type: application/json
 #delete budget item
 DELETE https://budget-app-mw5p.onrender.com/budget-items/65d11f6b92a614670cb40f41
 ###
+
+//local host income
+#get all incomes
+GET http://localhost:8080/income
+###
+
+#get single income by id
+GET http://localhost:8080/income/65d12b7799120813a7f85d99
+###
+
+#create income
+POST http://localhost:8080/income
+Content-Type: application/json
+
+{
+    "description": "paycheck 2",
+    "amount": 1400.00
+}
+###
+
+#Update income by id
+PUT http://localhost:8080/income/65d12b7799120813a7f85d99
+Content-Type: application/json
+
+{
+    "description": "paycheck",
+    "amount": 1700.00
+}
+###
+
+#delete income
+DELETE http://localhost:8080/income/65d12bbe99120813a7f85d9a
+###
+
+//income render
+#GET all income
+GET https://budget-app-mw5p.onrender.com/income
+###

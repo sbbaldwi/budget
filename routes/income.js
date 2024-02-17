@@ -2,9 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const incomeController = require('../controller/income');
-const { incomeValidationRules, validate } = require('./validationRules');
+const { incomeValidationRules, validate } = require('../validation');
 
-router.post('/income', incomeValidationRules(), validate, createIncome);
+router.post('/income', incomeValidationRules(), validate, incomeController.createIncome);
 
 router.get('/', incomeController.getAllIncome);
 router.get('/:id', incomeController.getSingleIncome);

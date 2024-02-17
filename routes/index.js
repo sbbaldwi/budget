@@ -7,6 +7,6 @@ const incomeRouter = require('./income')
 
 routes.use('/accounts', accountsRouter);
 routes.use('/budget-items', budgetItemsRouter);
-routes.use('./income', incomeRouter);
+routes.use('/income', incomeRouter);
 
 module.exports = routes;
