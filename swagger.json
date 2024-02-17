@@ -214,7 +214,6 @@
     },
     "/budget-items/{id}": {
       "put": {
-        "description": "Updates an existing budget item by ID",
         "parameters": [
           {
             "name": "id",
@@ -232,148 +231,143 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "200": {
+            "description": "Budget item updated successfully"
           }
         }
       },
-      "delete": {
-        "description": "Deletes a budget item by ID",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+      "responses": {
+        "204": {
+          "description": "No Content"
+        },
+        "400": {
+          "description": "Bad Request"
+        },
+        "404": {
+          "description": "Not Found"
+        },
+        "500": {
+          "description": "Internal Server Error"
         }
       }
     },
-    "/income": {
-      "get": {
-        "description": "Returns a list of all income records",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+    "delete": {
+      "description": "Deletes a budget item by ID",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
         }
-      },
-      "post": {
-        "description": "Creates a new income record with the given details",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "required": [
-                "description",
-                "amount"
-              ],
-              "properties": {
-                "description": {
-                  "type": "string",
-                  "example": "Salary payment"
-                },
-                "amount": {
-                  "type": "number",
-                  "example": 3000.00
-                }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK"
+        },
+        "404": {
+          "description": "Not Found"
+        },
+        "500": {
+          "description": "Internal Server Error"
+        }
+      }
+    }
+  },
+  "/income": {
+    "get": {
+      "description": "Returns a list of all income records",
+      "responses": {
+        "200": {
+          "description": "OK"
+        },
+        "500": {
+          "description": "Internal Server Error"
+        }
+      }
+    },
+    "post": {
+      "description": "Creates a new income record with the given details",
+      "parameters": [
+        {
+          "name": "body",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "type": "object",
+            "required": [
+              "description",
+              "amount"
+            ],
+            "properties": {
+              "description": {
+                "type": "string",
+                "example": "Salary payment"
+              },
+              "amount": {
+                "type": "number",
+                "example": 3000.00
               }
             }
           }
-        ],
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "500": {
-            "description": "Internal Server Error"
+        }
+      ],
+      "responses": {
+        "201": {
+          "description": "Created"
+        },
+        "400": {
+          "description": "Bad Request"
+        },
+        "500": {
+          "description": "Internal Server Error"
+        }
+      }
+    }
+  },
+  "/income/{id}": {
+    "put": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
+        },
+        {
+          "name": "body",
+          "in": "body",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/Income"
           }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "Income record updated successfully"
         }
       }
     },
-    "/income/{id}": {
-      "put": {
-        "description": "Updates an existing income record by ID",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Income"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+    "delete": {
+      "description": "Deletes an income record by ID",
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "type": "string"
         }
-      },
-      "delete": {
-        "description": "Deletes an income record by ID",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+      ],
+      "responses": {
+        "200": {
+          "description": "OK"
+        },
+        "404": {
+          "description": "Not Found"
+        },
+        "500": {
+          "description": "Internal Server Error"
         }
       }
     }
@@ -383,61 +377,54 @@
       "type": "object",
       "properties": {
         "firstName": {
-          "type": "string"
+          "type": "string",
+          "example": "John"
         },
         "lastName": {
-          "type": "string"
+          "type": "string",
+          "example": "Doe"
         },
         "email": {
-          "type": "string"
+          "type": "string",
+          "example": "john.doe@example.com"
         },
         "phoneNumber": {
-          "type": "string"
+          "type": "string",
+          "example": "123-456-7890"
         },
         "password": {
-          "type": "string"
+          "type": "string",
+          "example": "password123"
         }
-      },
-      "BudgetItem": {
-        "type": "object",
-        "required": [
-          "category",
-          "description",
-          "amount"
-        ],
-        "properties": {
-          "category": {
-            "type": "string",
-            "enum": [
-              "grocery",
-              "gas",
-              "rent",
-              "activities",
-              "bills",
-              "miscellaneous"
-            ]
-          },
-          "description": {
-            "type": "string"
-          },
-          "amount": {
-            "type": "number"
-          }
+      }
+    },
+    "BudgetItem": {
+      "type": "object",
+      "properties": {
+        "category": {
+          "type": "string",
+          "example": "grocery"
+        },
+        "description": {
+          "type": "string",
+          "example": "Weekly groceries"
+        },
+        "amount": {
+          "type": "number",
+          "example": 150.00
         }
-      },
-      "Income": {
-        "type": "object",
-        "required": [
-          "description",
-          "amount"
-        ],
-        "properties": {
-          "description": {
-            "type": "string"
-          },
-          "amount": {
-            "type": "number"
-          }
+      }
+    },
+    "Income": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "example": "Monthly salary"
+        },
+        "amount": {
+          "type": "number",
+          "example": 3000.00
         }
       }
     }
