@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 const budget_itemsController = require('../controller/budget_items');
+const { budgetItemValidationRules, validate } = require('./validationRules');
+
+router.post('/budget-items', budgetItemValidationRules(), validate, createBudgetItem);
 
 router.get('/', budget_itemsController.getAllBudgetItems);
 router.get('/:id', budget_itemsController.getSingleBudgetItem);

@@ -135,6 +135,16 @@
         }
       }
     },
+    "/budget-items/budget-items": {
+      "post": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/budget-items/": {
       "get": {
         "description": "",
@@ -249,6 +259,16 @@
           },
           "500": {
             "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "./income/income": {
+      "post": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       }
