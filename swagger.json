@@ -88,27 +88,58 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Updates an existing account identified by ID with the provided details.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "The ID of the account to be updated."
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string",
+                  "example": "John"
+                },
+                "lastName": {
+                  "type": "string",
+                  "example": "Doe"
+                },
+                "email": {
+                  "type": "string",
+                  "example": "john.doe@example.com"
+                },
+                "phoneNumber": {
+                  "type": "string",
+                  "example": "123-456-7890"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "newpassword123"
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "204": {
+            "description": "No Content - the account was successfully updated."
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request - the request was invalid."
           },
           "404": {
-            "description": "Not Found"
+            "description": "Not Found - the account with the given ID was not found."
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal Server Error - an error occurred on the server."
           }
         }
       },
@@ -206,27 +237,58 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Updates a specific budget item identified by ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "The ID of the budget item to update."
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "category": {
+                  "type": "string",
+                  "enum": [
+                    "grocery",
+                    "gas",
+                    "rent",
+                    "activities",
+                    "bills",
+                    "miscellaneous"
+                  ],
+                  "example": "grocery"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "Grocery Budget"
+                },
+                "amount": {
+                  "type": "number",
+                  "example": 150.00
+                }
+              }
+            }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "Budget item successfully updated."
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad request."
           },
           "404": {
-            "description": "Not Found"
+            "description": "Budget item not found."
           },
           "500": {
-            "description": "Internal Server Error"
+            "description": "Internal server error."
           }
         }
       },
@@ -275,10 +337,10 @@
               "type": "object",
               "properties": {
                 "description": {
-                  "example": "any"
+                  "example": "paycheck"
                 },
                 "amount": {
-                  "example": "any"
+                  "example": "3000"
                 }
               }
             }
@@ -318,13 +380,36 @@
         }
       },
       "put": {
-        "description": "",
+        "description": "Updates an existing item identified by ID.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "The ID of the item to update."
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "description": {
+                  "type": "string",
+                  "example": "paycheck"
+                },
+                "amount": {
+                  "type": "number",
+                  "example": 3000
+                }
+              },
+              "required": [
+                "description",
+                "amount"
+              ]
+            }
           }
         ],
         "responses": {
