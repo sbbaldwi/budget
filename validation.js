@@ -1,5 +1,15 @@
 const { body, validationResult } = require('express-validator');
 
+const accountValidationRules = () => {
+  return [
+    body('email').isEmail().withMessage('Email must be valid'),
+    body('password').isLength({ min: 5 }).withMessage('Password must be at least 5 characters long'),
+    body('firstName').notEmpty().withMessage('First name is required'),
+    body('lastName').notEmpty().withMessage('Last name is required'),
+    body('phoneNumber').optional().isMobilePhone().withMessage('Phone number must be valid'),
+  ];
+};
+
 const budgetItemValidationRules = () => {
   return [
     body('category').isIn(['grocery', 'gas', 'rent', 'activities', 'bills', 'miscellaneous']).withMessage('Invalid category'),
@@ -31,5 +41,6 @@ const validate = (req, res, next) => {
 module.exports = {
   budgetItemValidationRules,
   incomeValidationRules,
+  accountValidationRules,
   validate,
 };

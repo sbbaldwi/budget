@@ -138,7 +138,7 @@ Content-Type: application/json
 {
     "category": "rent",
     "description": "Monthly Rent",
-    "amount": 950.00
+    "amount": 970.00
 }
 ###
 
@@ -171,7 +171,7 @@ Content-Type: application/json
 
 {
     "description": "paycheck",
-    "amount": 1700.00
+    "amount": 1500.00
 }
 ###
 
