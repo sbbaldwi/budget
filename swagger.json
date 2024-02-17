@@ -278,7 +278,7 @@
           }
         ],
         "responses": {
-          "200": {
+          "204": {
             "description": "Budget item successfully updated."
           },
           "400": {
@@ -414,7 +414,7 @@
         ],
         "responses": {
           "204": {
-            "description": "No Content"
+            "description": "No Content: income updated successfully"
           },
           "400": {
             "description": "Bad Request"
