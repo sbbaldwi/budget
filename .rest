@@ -183,3 +183,30 @@ DELETE http://localhost:8080/income/65d12bbe99120813a7f85d9a
 #GET all income
 GET https://budget-app-mw5p.onrender.com/income
 ###
+
+#get single income by id
+GET https://budget-app-mw5p.onrender.com/income/65d12b7799120813a7f85d99
+###
+
+#create income
+POST https://budget-app-mw5p.onrender.com/income
+Content-Type: application/json
+
+{
+    "description": "paycheck 2",
+    "amount": 1400.00
+}
+###
+
+#update income
+PUT https://budget-app-mw5p.onrender.com/income/65d12ce28c1637f4ac834124
+content-type: application/json
+
+{
+    "description": "paycheck 2",
+    "amount": 1900.00
+}
+###
+
+#delete contact
+DELETE https://budget-app-mw5p.onrender.com/income/65d12ce28c1637f4ac834124
