@@ -1,3 +1,4 @@
+//Account
 #get accounts
 GET http://localhost:8080/accounts
 ###
@@ -34,4 +35,113 @@ Content-Type: application/json
 
 #delete account
 DELETE http://localhost:8080/accounts/65d10dd6c69184842e8b91c8
+###
+
+//Render
+#Get all accounts
+GET https://budget-app-mw5p.onrender.com/accounts
+###
+
+#Get single account by ID
+GET https://budget-app-mw5p.onrender.com/accounts/65d10e1b56c7e4f5fe849786
+###
+
+#create account
+POST https://budget-app-mw5p.onrender.com/accounts
+Content-Type: application/json
+
+{
+  "firstName": "Jake", 
+  "lastName": "Christiansen", 
+  "email": "jakechristiansen@gmail.com", 
+  "phoneNumber": "123-456-7894", 
+  "password": "lol"
+}
+###
+
+#update account
+PUT https://budget-app-mw5p.onrender.com/accounts/65d10e1b56c7e4f5fe849786
+Content-Type: application/json
+
+{
+  "firstName": "Jacob", 
+  "lastName": "Christiansen", 
+  "email": "jacobchristiansen@gmail.com", 
+  "phoneNumber": "123-456-7894", 
+  "password": "lol"
+}
+###
+
+#delete account
+DELETE https://budget-app-mw5p.onrender.com/accounts/65d10e1b56c7e4f5fe849786
+###
+
+//budget items
+#get all budget items
+GET http://localhost:8080/budget-items
+###
+
+#get budget item by id
+GET http://localhost:8080/budget-items/65d11ca75b55fd1796c37647
+###
+
+#create budget item
+POST http://localhost:8080/budget-items
+Content-Type: application/json
+
+{
+    "category": "grocery",
+    "description": "Weekly groceries",
+    "amount": 150.00
+}
+###
+
+#update budget item
+PUT http://localhost:8080/budget-items/65d11d4e5b55fd1796c37648
+Content-Type: application/json
+
+{
+    "category": "grocery",
+    "description": "Weekly groceries",
+    "amount": 175.00
+}
+###
+
+#delete budget item
+DELETE http://localhost:8080/budget-items/65d11e9fb499627e79bcaecf
+###
+
+//Render Budget Items
+#get all budget items
+GET https://budget-app-mw5p.onrender.com/budget-items
+###
+
+#get single budget item by id
+GET https://budget-app-mw5p.onrender.com/budget-items/65d11d4e5b55fd1796c37648
+###
+
+#create budget item
+POST https://budget-app-mw5p.onrender.com/budget-items
+Content-Type: application/json
+
+{
+    "category": "rent",
+    "description": "Monthly Rent",
+    "amount": 750.00
+}
+###
+
+#Update budget item
+PUT https://budget-app-mw5p.onrender.com/budget-items/65d11f8e92a614670cb40f42
+Content-Type: application/json
+
+{
+    "category": "rent",
+    "description": "Monthly Rent",
+    "amount": 950.00
+}
+###
+
+#delete budget item
+DELETE https://budget-app-mw5p.onrender.com/budget-items/65d11f6b92a614670cb40f41
 ###
