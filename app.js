@@ -4,6 +4,8 @@ const mongodb = require('./db/connect');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
 const cors = require('cors');
+const passport = require('passport');
+require('./auth');
 
 
 const port = process.env.PORT || 8080;
@@ -14,6 +16,18 @@ app
     .use(bodyParser.json())
     .use('/', require('./routes/index'))
     .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+app.get('/', (req, res) => {
+    res.send('<a href="/auth/google">Authenticate With Google</a>');
+})
+
+app.get('/auth/google',
+    passport.authenticate('google', { scope: ['email', 'profile'] })
+)
+
+app.get('/protected', (req, res) => {
+
+})
 
 
 mongodb.initDb((err, mongodb) => {
