@@ -8,8 +8,13 @@ passport.use(new GoogleStrategy({
     passReqToCallback: true
 },
     function (request, accessToken, refreshToken, profile, done) {
-        return done(err, user);
+        // Example user lookup or creation logic
+        User.findOrCreate({ googleId: profile.id }, function (err, user) {
+            if (err) { return done(err); }
+            return done(null, user);
+        });
     }));
+
 
 passport.serializeUser(function (user, done) {
     done(null, user);
