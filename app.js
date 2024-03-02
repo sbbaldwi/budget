@@ -25,9 +25,12 @@ app.get('/auth/google',
     passport.authenticate('google', { scope: ['email', 'profile'] })
 )
 
-app.get('/protected', (req, res) => {
+app.get('/google/callback',
+    passport.authenticate('google', { failureRedirect: '/login' }),
+    function (req, res) {
+        res.redirect('https://budget-app-mw5p.onrender.com/api-docs');
+    });
 
-})
 
 
 mongodb.initDb((err, mongodb) => {
