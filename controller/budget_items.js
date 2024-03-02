@@ -30,7 +30,7 @@ const getSingleBudgetItem = async (req, res) => {
 const createBudgetItem = async (req, res) => {
     try {
         const { category, description, amount } = req.body;
-        const validCategories = ['grocery', 'gas', 'rent', 'activities', 'bills', 'miscellaneous'];
+        const validCategories = ['grocery', 'gas', 'rent', 'activities', 'utilities', 'debt', 'miscellaneous'];
 
         if (!validCategories.includes(category)) {
             return res.status(400).json({ message: 'Invalid category provided' });
