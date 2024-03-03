@@ -31,13 +31,13 @@ const getSingle = async (req, res) => {
 const createAccount = async (req, res) => {
     console.log(req.body);
     try {
-        const { firstName, lastName, email, phoneNumber, password } = req.body;
+        const { firstName, lastName, email, phoneNumber, password, birthday, fav_color } = req.body;
 
-        if (!firstName || !lastName || !email || !phoneNumber || !password) {
+        if (!firstName || !lastName || !email || !phoneNumber || !password || !birthday || !fav_color) {
             return res.status(400).json({ message: 'All fields are required' });
         }
 
-        const account = { firstName, lastName, email, phoneNumber, password };
+        const account = { firstName, lastName, email, phoneNumber, password, birthday, fav_color };
         const db = getDb();
         const collection = db.collection('accounts');
         const result = await collection.insertOne(account);
