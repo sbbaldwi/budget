@@ -33,19 +33,25 @@
               "type": "object",
               "properties": {
                 "firstName": {
-                  "example": "any"
+                  "example": "Nacho"
                 },
                 "lastName": {
-                  "example": "any"
+                  "example": "Libre"
                 },
                 "email": {
-                  "example": "any"
+                  "example": "email@gmail.com"
                 },
                 "phoneNumber": {
-                  "example": "any"
+                  "example": "123-456-7890"
                 },
                 "password": {
-                  "example": "any"
+                  "example": "Passwerd"
+                },
+                "birthday": {
+                  "example": "01/01/2001"
+                },
+                "fav_color": {
+                  "example": "Orange"
                 }
               }
             }
@@ -123,6 +129,14 @@
                 "password": {
                   "type": "string",
                   "example": "newpassword123"
+                },
+                "birthday": {
+                  "type": "string",
+                  "example": "01/01/2001"
+                },
+                "fav_color": {
+                  "type": "string",
+                  "example": "Orange"
                 }
               }
             }
